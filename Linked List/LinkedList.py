@@ -4,20 +4,20 @@ class Node:
         self.next=None
 
 Head=Node(1)
-print("Hello World")
-def insert(l):
-    Head=None 
-    temp=Head 
 
-    for i in l:
-        if Head == None: 
-            Head=Node(i)
+# def insert(l):
+#     Head=None 
+#     temp=Head 
 
-        else:
-            temp.next=Node(i)
-            temp=temp.next 
-    return Head 
+#     for i in l:
+#         if Head == None: 
+#             Head=Node(i)
 
-ans=insert([1,2,3,4,5,6])
-print   (ans)         
+#         else:
+#             temp.next=Node(i)
+#             temp=temp.next 
+#     return Head 
+
+# ans=insert([1,2,3,4,5,6])
+# print   (ans)         
 
