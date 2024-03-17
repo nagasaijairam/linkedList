@@ -1,1 +1,0 @@
-print("Linked List On Github")
