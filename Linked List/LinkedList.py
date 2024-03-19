@@ -4,4 +4,3 @@ class Node:
         self.next=None 
 
         
-print("Jai linked list")
