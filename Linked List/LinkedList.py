@@ -3,4 +3,4 @@ class Node:
         self.val=val
         self.next=None 
 
-        
+# //we are going to learn linked list by urvu goel madam today.        
