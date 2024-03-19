@@ -19,6 +19,8 @@ def traverse(Head):
     print()
 
 def insertAtHead(x,Head):
+    if Head[0]==None:
+        insertAtHead(x,Head)
     newHead=Node(x)
     newHead.next=Head[0]
     Head[0]=newHead    
