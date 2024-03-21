@@ -45,10 +45,22 @@ def insertAtMiddle(Head,x,k):
     newNode.next=temp.next
     temp.next=newNode
 
-def deleteAtStart(Head):
-    if Head[0] is not None:
-        temp=Head[0] 
-        Head[0]=temp.next 
+def deleteAtHead(Head):
+    if Head[0] is  None:
+        return ;
+    temp=Head[0] 
+    Head[0]=temp.next 
+
+def deletAtLast(Head):
+    if Head[0] == None:
+        return 
+    if Head[0].next==None:
+        deleteAtHead(Head)
+    temp=Head[0]
+    while temp.next.next!=None:
+        temp=temp.next 
+
+    temp.next=None   
 
 
              
@@ -59,10 +71,5 @@ insertAtHead(Head,0)#0->1->2->
 insertAtEnd(Head,3) #0->1->2->3->
 # insertAtEnd(Head,4) #0->1->2->3->4->
 # insertAtMiddle(Head,1.5,3)
-# deleteAtStart(Head)
-traverse(Head) #0->1->2->3->4->
-print(Head[0].val)
-temp=Head[0]
-while temp:
-    print(temp.val)
-    temp=temp.next
+# deleteAtHead(Head)
+# traverse(Head) #0->1->2->3->4->
