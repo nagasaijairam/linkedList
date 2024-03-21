@@ -1,66 +1,86 @@
 class Node:
-    def __init__(self,val):
-        self.val=val
-        self.next=None 
+    def __init__(self, val):
+        self.val = val
+        self.next = None
 
-# //we are going to learn linked list by urvu goel madam today.        
-node1=Node(1)
-node2=Node(2)
-node1.next=node2
+# Initialize the linked list with a single node
+Head = Node(1)
 
-Head=[node1]
-
-
+# Function to traverse and print the linked list
 def traverse(Head):
-    temp=Head[0] 
-    while temp !=None:
-        print(temp.val,end="->")
-        temp=temp.next
+    temp = Head
+    while temp != None:
+        print(temp.val, end="->")
+        temp = temp.next
     print()
 
-def insertAtHead(Head,x):
- 
-    newHead=Node(x)
-    newHead.next=Head[0]
-    Head[0]=newHead    
+# Function to insert a new node at the beginning of the linked list
+def insertAtHead(Head, x):
+    newHead = Node(x)
+    newHead.next = Head
+    Head = newHead
+    return Head
 
+# Function to insert a new node at the end of the linked list
+def insertAtEnd(Head, x):
+    newNode = Node(x)
+    if Head is None:
+        return newNode
+    temp = Head
+    while temp.next != None:
+        temp = temp.next
+    temp.next = newNode
+    return Head
 
-def insertAtEnd(Head,x):
-    newNode=Node(x)
-    temp=Head[0]
-    while temp.next!=None:
-        temp=temp.next 
-    temp.next=newNode         
+# Function to insert a new node at a specified position in the linked list
+def insertAtMiddle(Head, x, k):
+    if k == 1:
+        return insertAtHead(Head, x)
+    temp = Head
+    count = 1
+    while count < k - 1 and temp != None:
+        temp = temp.next
+        count += 1
+    if temp == None:
+        print("Position out of range")
+        return Head
+    newNode = Node(x)
+    newNode.next = temp.next
+    temp.next = newNode
+    return Head
 
-def insertAtMiddle(Head,x,k):
-    if k==1:
-        insertAtHead(Head,x)
-        return 
-    temp = Head[0]
-    count=1 
-    while  count<k-1:
-        temp=temp.next 
-        count+=1 
-    newNode=Node(x)
-    newNode.next=temp.next
-    temp.next=newNode
-
+# Function to delete the first node of the linked list
 def deleteAtHead(Head):
-    if Head[0] is  None:
-        return ;
-    temp=Head[0] 
-    Head[0]=temp.next 
+    if Head is None:
+        return None
+    Head = Head.next
+    return Head
 
-def deletAtLast(Head):
-    if Head[0] == None:
-        return 
-    if Head[0].next==None:
-        deleteAtHead(Head)
-    temp=Head[0]
-    while temp.next.next!=None:
-        temp=temp.next 
+# Function to delete the last node of the linked list
+def deleteAtLast(Head):
+    if Head is None:
+        return None
+    if Head.next is None:
+        return None
+    temp = Head
+    while temp.next.next != None:
+        temp = temp.next
+    temp.next = None
+    return Head
 
-    temp.next=None   
+
+# Example usage:
+traverse(Head) # Output: 1->
+Head = insertAtHead(Head, 0)
+traverse(Head) # Output: 0->1->
+Head = insertAtEnd(Head, 3)
+traverse(Head) # Output: 0->1->3->
+Head = insertAtMiddle(Head, 1.5, 3)
+traverse(Head) # Output: 0->1->1.5->3->
+Head = deleteAtHead(Head)
+traverse(Head) # Output: 1->1.5->3->
+Head = deleteAtLast(Head)
+traverse(Head) # Output: 1->1.5->
 
 
              
